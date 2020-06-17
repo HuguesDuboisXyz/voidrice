@@ -8,7 +8,7 @@ alias \
 	bat="cat /sys/class/power_supply/BAT?/capacity" \
 	cp="cp -iv" \
 	mv="mv -iv" \
-	rm="rm -v" \
+	rm="rm -vI" \
 	mkd="mkdir -pv" \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
@@ -24,6 +24,10 @@ alias \
 
 # These common commands are just too long! Abbreviate them.
 alias \
+	ka="killall" \
+	g="git" \
+	trem="transmission-remote" \
+	YT="youtube-viewer" \
 	sdn="sudo shutdown -h now" \
 	f="$FILE" \
 	e="$EDITOR" \
@@ -31,6 +35,7 @@ alias \
 	xi="sudo xbps-install -S" \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
+	z="zathura"
 	gs="git status" \
 	gpom="git push origin master"
 
@@ -40,4 +45,5 @@ alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
 # Some other stuff
 alias \
 	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
-	wttr="curl wttr.in"
+	wttr="curl wttr.in" \
+	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \

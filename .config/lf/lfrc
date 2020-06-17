@@ -6,27 +6,31 @@ set shell sh
 set previewer ~/.config/lf/scope
 set shellopts '-eu'
 set ifs "\n"
+set scrolloff 10
 set color256
-set icons		# Enable icons. Requires nerd fonts and LF_ICONS variable.
+set icons   # Enable icons. Requires nerd fonts and LF_ICONS variable.
+set period 1
 set drawbox true
 
 # cmds/functions
 cmd open ${{
     case $(file --mime-type $f -b) in
-    	text/troff) man ./ $f;;
+        image/vnd.djvu|application/pdf|application/octet-stream) setsid -f zathura $fx >/dev/null 2>&1 ;;
+        text/troff) man ./ $f;;
         text/*) $EDITOR $fx;;
-	image/x-xcf|image/svg+xml) setsid gimp $f >/dev/null 2>&1 & ;;
-	image/*) rotdir $f | setsid sxiv -aio 2>/dev/null | lf-select & ;;
-	audio/*) mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f ;;
-	video/*) setsid mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f -quiet >/dev/null 2>&1 & ;;
-	application/pdf) setsid zathura $fx >/dev/null 2>&1 & ;;
-        *) for f in $fx; do setsid $OPENER $f >/dev/null 2>&1 & done;;
+        image/x-xcf|image/svg+xml) setsid -f gimp $f >/dev/null 2>&1 ;;
+        image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\)\(_large\)*$" | sxiv -aio 2>/dev/null | lf-select ;;
+        audio/*) mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f ;;
+        video/*) setsid mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f -quiet >/dev/null 2>&1 & ;;
+        application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
+        *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
     esac
 }}
 
 cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 
 cmd delete ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	printf "%s\n\t" "$fx"
 	printf "delete?[y/N]"
@@ -35,18 +39,24 @@ cmd delete ${{
 }}
 
 cmd moveto ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Move to where?"
-	dest="$(cut -d'	' -f2- ~/.config/directories | fzf)" &&
-	eval mv -iv $fx $dest &&
+	dest="$(cut -d'	' -f2- ${XDG_CONFIG_HOME:-$HOME/.config}/directories | fzf | sed 's|~|$HOME|' )" &&
+	for x in $fx; do
+		eval mv -iv \"$x\" \"$dest\"
+	done &&
 	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
 }}
 
 cmd copyto ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Copy to where?"
-	dest="$(cut -d'	' -f2- ~/.config/directories | fzf)" &&
-	eval cp -ivr $fx $dest &&
+	dest="$(cut -d'	' -f2- ${XDG_CONFIG_HOME:-$HOME/.config}/directories | fzf | sed 's|~|$HOME|' )" &&
+	for x in $fx; do
+		eval cp -ivr \"$x\" \"$dest\"
+	done &&
 	notify-send "📋 File(s) copied." "File(s) copies to $dest."
 }}
 
@@ -85,5 +95,17 @@ map <c-r> reload
 map <enter> shell
 map x $$f
 map X !$f
-map o open
 map . set hidden!
+map o &mimeopen $f
+map O $mimeopen --ask $f
+
+map A rename # at the very end
+map c push A<c-u> # new rename
+map I push A<c-a> # at the very beginning
+map i push A<a-b><a-b><a-f> # before extention
+map a push A<a-b> # after extention
+map b bulkrename
+
+map <c-e> down
+map <c-y> up
+map V push :!nvim<space>
