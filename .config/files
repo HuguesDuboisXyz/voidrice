@@ -12,5 +12,5 @@ cfn	${XDG_CONFIG_HOME:-$HOME/.config}/newsboat/config
 cfmb	${XDG_CONFIG_HOME:-$HOME/.config}/ncmpcpp/bindings
 cfmc	${XDG_CONFIG_HOME:-$HOME/.config}/ncmpcpp/config
 cfk	${XDG_CONFIG_HOME:-$HOME/.config}/sxhkd/sxhkdrc
-cfd	~/.Xdefaults
-cfl	~/.config/lf/lfrc
+cfd	${XDG_CONFIG_HOME:-$HOME}/.Xdefaults
+cfl	${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc

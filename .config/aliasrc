@@ -35,7 +35,7 @@ alias \
 	xi="sudo xbps-install -S" \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
-	z="zathura"
+	z="zathura" \
 	gs="git status" \
 	gpom="git push origin master"
 
@@ -44,6 +44,7 @@ alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
 
 # Some other stuff
 alias \
-	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
+	magit="nvim -c MagitOnly" \
+	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" \
 	wttr="curl wttr.in" \
 	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \

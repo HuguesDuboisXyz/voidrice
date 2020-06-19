@@ -155,39 +155,39 @@
 /* *.color256: 0#1d2021 */
 /* *.color257: 15#ebdbb2 */
 
-!! Set the background, foreground and cursor colors as below:
-*.background: #282828
-*.foreground: #f8f8ff
+/*!! Set the background, foreground and cursor colors as below:*/
+/**.background: #282828*/
+/**.foreground: #f8f8ff*/
 /* *.cursorColor: white */
 
-! black
-*.color0:       #323d43
-*.color8:       #a7c080
+/*! black*/
+/**.color0:       #323d43*/
+/**.color8:       #a7c080*/
 
-! red
-*.color1:       #e68183
-*.color9:       #e39b7b
+/*! red*/
+/**.color1:       #e68183*/
+/**.color9:       #e39b7b*/
 
-! green
-*.color2:       #a7c080
-*.color10:      #333b2f
+/*! green*/
+/**.color2:       #a7c080*/
+/**.color10:      #333b2f*/
 
-! yellow
-*.color3:       #d9bb80
-*.color11:      #d9bb80
+/*! yellow*/
+/**.color3:       #d9bb80*/
+/**.color11:      #d9bb80*/
 
-! blue
-*.color4:       #89beba
-*.color12:      #203a41
+/*! blue*/
+/**.color4:       #89beba*/
+/**.color12:      #203a41*/
 
-! magenta
-*.color5:       #d3a0bc
-*.color13:      #d3a0bc
+/*! magenta*/
+/**.color5:       #d3a0bc*/
+/**.color13:      #d3a0bc*/
 
-! cyan
-*.color6:       #87c095
-*.color14:      #87c095
+/*! cyan*/
+/**.color6:       #87c095*/
+/**.color14:      #87c095*/
 
-! white
-*.color7:       #d8caac
-*.color15:      #d8caac
+/*! white*/
+/**.color7:       #d8caac*/
+/**.color15:      #d8caac*/
