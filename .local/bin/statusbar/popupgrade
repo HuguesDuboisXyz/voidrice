@@ -1,0 +1,15 @@
+#!/bin/sh
+
+printf "Beginning upgrade.\\n"
+
+distro="void" # void | arch
+
+
+case $distro in
+	void) notify-send "📦 Upgrade" "$(sudo xbps-install -Suy)" ;;
+	arch) notify-send "📦 Upgrade" "$(yay -Syu)" ;;
+esac
+pkill -RTMIN+8 "${STATUSBAR:-dwmblocks}"
+
+printf "\\nUpgrade complete.\\nPress <Enter> to exit window.\\n\\n"
+read -r
