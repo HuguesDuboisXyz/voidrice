@@ -4,7 +4,7 @@
 ..
 .PARA_SPACE 1m
 .TITLE "\s+(10A Friendly Guide to LARBS!\s0"
-.AUTHOR "\s+5Adrian Claridge\s0"
+.AUTHOR "\s+5Luke Smith\s0"
 .DOCTYPE    DEFAULT
 .COPYSTYLE  FINAL
 .PRINTSTYLE TYPESET
@@ -16,7 +16,7 @@ Pressing \f(CWs\fP will fit it to window width (\f(CWa\fP to revert).
 \f(CWSuper+f\fP to toggle fullscreen.
 \f(CWf\fP will highlight links to follow which are selectable by typing the number that appears plus \f(CWEnter\fP.
 \f(CWq\fP to quit.
-(These are general keybinds for \f(CWzathura\fP, the pdf reader.)
+(These are general binds set for \fBzathura\fP, the pdf reader.)
 .LI
 .ITEM
 \f(CWMod+F1\fP will show this document at any time.
@@ -24,13 +24,6 @@ Pressing \f(CWs\fP will fit it to window width (\f(CWa\fP to revert).
 By \f(CWMod\fP I mean the Super Key, usually known as "the Windows Key."
 .LIST OFF
 .PP
-Questions or suggestions? Email me at
-.PDF_WWW_LINK "mailto:am@claridge.xyz" "am@claridge.xyz"
-.LI
-.ITEM
-LARBS Void Edition website:
-.PDF_WWW_LINK "https://claridge.xyz/"
-.LIST OFF
 FAQs are at the end of this document.
 .HEADING 1 "Welcome!"
 .HEADING 2 "Basic goals and principles of this system:"
@@ -38,11 +31,9 @@ FAQs are at the end of this document.
 .ITEM
 \fBNaturalness\fP \(en
 Remove the border between mind and matter:
-everything important should be as few key presses as possible away from you,
+everything important should be as few keypresses as possible away from you,
 and you shouldn't have to think about what you're doing.
-Slow input methods continue to hold technology back,
-but LARBS does its best to make use of your keyboard,
-still the fastest and most accurate input method we have.
+Immersion.
 .ITEM
 \fBEconomy\fP \(en
 Programs should be simple and light on system resources and highly extensible.
@@ -54,13 +45,11 @@ Your hands never need leave the home row or thereabout.
 .ITEM
 \fBDecentralization\fP \(en
 This system is a web of small, modifiable and replaceable programs that users can easily customize.
-Don't like the way something looks or works? You can change it.
-You no longer have to rely on a corporation to dictate your workflow.
 .LIST OFF
 .HEADING 2 "General keyboard changes"
 .LI
 .ITEM
-Capslock is a useless key using up prime real estate next to the home row.
+Capslock is a useless key in high quality space.
 It's now remapped.
 If you press it alone, it will function as escape, making vimcraft much more natural,
 but you can also hold it down and it will act as another Windows/super/mod key.
@@ -68,9 +57,9 @@ but you can also hold it down and it will act as another Windows/super/mod key.
 The menu button (usually between the right Alt and Ctrl) is an alternative Super/Mod button.
 This is to make one-handing on laptops easier.
 .LIST OFF
-If you'd like to change any of these keyboard changes, you need only open and change \f(CW~/.local/bin/remaps\fP.
-Additionally, all custom scripts in LARBS are located in \f(CW~/.local/bin/\fP.
-This may go without saying, but \fIEverything\fP here can easily be changed.
+If you'd like to change any of these keyboard changes, you need only open and change the \f(CWremaps\fP script.
+All custom scripts in LARBS are located in \f(CW~/.local/bin/\fP.
+Actually, this should go without saying, but \fIeverything\fP here can easily be changed.
 Below in this document, there is information about where to change programs/components.
 .PP
 Additionally, while this isn't a part of the desktop environment, the default editing mode in the shell is using vi bindings.
@@ -78,22 +67,16 @@ If you want to learn more of this, run \f(CWMod+Shift+E\fP and type and select t
 This setting can be changed if you don't like it by deleting or commenting out the contents of \f(CW~/.config/inputrc\fP.
 .HEADING 2 "The Status Bar"
 .PP
-If you're new to dwm, notice the status bar on the top of the screen.
-To the left side, you'll see the numbers of your current workspace/tag(s).
-On the right side, you'll see various system status notifiers, the date, volume, news updates, even music and local weather if possible.
+To the left, you'll see the numbers of your current workspace/tag(s).
+On the right, you'll see various system status notifiers, the date, volume, even music and local weather if possible, etc.
 Each module on the right of the status bar is a script located in \f(CW~/.local/bin/statusbar/\fP.
-You can see how they work and modify them from there.
-The program that sets the bar can be found here:
-.PDF_WWW_LINK "https://github.com/PlatinumClaridge/dwmblocks"
-You can read the specifics there or clone and change it if you want.
+You can see what they do and modify them from there.
+I'm sure you can figure it out.
 .HEADING 2 "Deeper Tutorials"
 .PP
 Press \f(CWmod+shift+e\fP at any time to get a menu of programs to watch videos about streaming directly from YouTube.
 You can also check the config files for programs which detail a lot of the specific bindings.
 .HEADING 1 "Key Bindings"
-.PP
-First, the key bindings.
-Keybinds are compiled into dwm itself, but can be found in \f(CW~/repos/dwm/config.h\fP. You'll have to recompile dwm to change them.
 .HEADING 2 "Window basics"
 .PP
 Notice the case sensitivity of the shortcuts\c
@@ -105,17 +88,19 @@ To type capital letters, hold down the \f(CWShift\fP key\(emthat might sound lik
 .ITEM
 \f(CWMod+Enter\fP \(en Spawn terminal (the default terminal is \f(CWst\fP; run \f(CWman st\fP for more.)
 .ITEM
-\f(CWMod+q\fP \(en Close window
-.ITEM
-\f(CWMod+Q\fP \(en Force close window
+\f(CWMod+q\fP \(en Close window (Hold down shift to force kill.)
 .ITEM
 \f(CWMod+d\fP \(en dmenu (For running commands or programs without shortcuts)
 .ITEM
-\f(CWMod+j/k\fP \(en Move to different windows
+\f(CWMod+h/j/k/l\fP \(en Move to different windows
 .ITEM
-\f(CWMod+h/l\fP \(en Increase/decrease window width
+\f(CWMod+H/J/K/L\fP \(en Move a window around
 .ITEM
-\f(CWMod+z/Z\fP \(en Increase/decrease gaps
+\f(CWMod+Y/U/I/O\fP \(en Resize windows
+.ITEM
+\f(CWMod+s/S\fP \(en Increase/decrease inner gaps
+.ITEM
+\f(CWMod+z/Z\fP \(en Increase/decrease outer gaps
 .ITEM
 \f(CWMod+D\fP \(en Toggle gaps
 .ITEM
@@ -123,43 +108,40 @@ To type capital letters, hold down the \f(CWShift\fP key\(emthat might sound lik
 .ITEM
 \f(CWMod+Shift+Space\fP \(en Make a window float (it will still be resizeable)
 .ITEM
-\f(CWMod+Left Mouse Button\fP \(en Drag/move floating window
-.ITEM
-\f(CWMod+Right Mouse Button\fP \(en Resize floating window
+\f(CWMod+Space\fP \(en Switch focus from a floating window to a non-floating one (or
+  vice versa)
 .ITEM
 \f(CWMod+b\fP \(en Toggle status bar
-.LIST OFF
-.HEADING 2 "Window layouts"
-.LI
 .ITEM
-\f(CWMod+t\fP \(en Tiling mode (active by default)
+\f(CWMod+B\fP \(en Toggle window float in bottom left corner (good for video watched intermittently)
 .ITEM
-\f(CWMod+y\fP \(en Monocle mode (cycle through fullscreen windows)
-.ITEM
-\f(CWMod+u\fP \(en Center the master window
-.ITEM
-\f(CWMod+o\fP \(en Center and float the master window
+\f(CWMod+N\fP \(en Same as above, but for the bottom right corner.
 .LIST OFF
 .HEADING 2 "Basic Programs"
 .PP
-\fINote:\fP LARBS installs all of these programs by default.
+\fINote:\fP LARBS will install nearly all of these programs by default, but some only come if you chose an extra option.
+Naturally, you can use \f(CWyay\fP to look for and install any you want to add.
 .LI
 .ITEM
 \f(CWMod+r\fP \(en lf (file browser/manager)
 .ITEM
-\f(CWMod+e\fP \(en neomutt (email client) \(en Must be first configured by running \f(CWmw add\fP.
+\f(CWMod+e\fP \(en neomutt (email) \(en Must be first configured by running \f(CWmw add\fP.
 .ITEM
 \f(CWMod+m\fP \(en ncmpcpp (music player)
 .ITEM
-\f(CWMod+w\fP \(en Web browser (firefox is the default in LARBS)
+\f(CWMod+a\fP \(en Dropdown calculator (hide with \f(CWmod+a\fP)
+.ITEM
+\f(CWMod+i\fP \(en htop (system info)
 .ITEM
 \f(CWMod+n\fP \(en newsboat (RSS feed reader)
 .ITEM
-\f(CWMod+a\fP \(en htop (activity monitor)
+\f(CWMod+A\fP \(en pulsemixer (audio system control)
 .ITEM
-\f(CWMod+A\fP \(en alsa (audio system control)
+\f(CWMod+w\fP \(en Web Browser (Brave)
 .ITEM
-\f(CWMod+c\fP \(en calcurse (flexible calendar and todo system in the terminal)
+\f(CWMod+W\fP \(en nmtui (for connecting to wireless internet)
+.ITEM
+\f(CWMod+G\fP \(en GIMP (for general image manipulation) \(en Not installed by default.
 .LIST OFF
 .HEADING 2 "System"
 .LI
@@ -174,11 +156,23 @@ To type capital letters, hold down the \f(CWShift\fP key\(emthat might sound lik
 .ITEM
 \f(CWMod+F1\fP \(en Shows this document
 .ITEM
-\f(CWMod+F2\fP \(en Refresh dwm
+\f(CWMod+Shift+F1\fP \(en Toggle the LARBS welcome message
+.ITEM
+\f(CWMod+F2\fP \(en Refresh/reload i3
 .ITEM
 \f(CWMod+F3\fP \(en Select screen/display to use
 .ITEM
-\f(CWMOD+F4\fP \(en suspend (will ask to confirm)
+\f(CWMod+F4\fP \(en Hibernate (will ask to confirm)
+.ITEM
+\f(CWMod+F5\fP \(en Reset Network Manager, search for new networks
+.ITEM
+\f(CWMod+F6\fP \(en transmission torrent client (cli)
+.ITEM
+\f(CWMod+F7\fP \(en Toggle on/off transmission client via dmenu
+.ITEM
+\f(CWMod+F8\fP \(en Check mail, if
+.PDF_WWW_LINK "https://github.com/lukesmithxyz/mutt-wizard" "mutt-wizard"
+is installed.
 .ITEM
 \f(CWMod+F9\fP \(en Mount a USB drive/hard drive or Android
 .ITEM
@@ -190,7 +184,7 @@ To type capital letters, hold down the \f(CWShift\fP key\(emthat might sound lik
 .LIST OFF
 .HEADING 2 "Audio"
 .PP
-ncmpcpp is the music player, which is a front end for mpd.
+I use ncmpcpp as a music player, which is a front end for mpd.
 .LI
 .ITEM
 \f(CWMod+m\fP \(en ncmpcpp music player
@@ -213,18 +207,18 @@ ncmpcpp is the music player, which is a front end for mpd.
 .ITEM
 \f(CWMod+]\fP \(en Forward 10 seconds (holding shift increases amount)
 .ITEM
-\f(CWMod+A\fP \(en alsamixer (general volume sink/source control)
+\f(CWMod+A\fP \(en pulsemixer (general volume sink/source control)
 .LIST OFF
-.HEADING 2 "Tags/Workspaces"
+.HEADING 2 "Workspaces"
 .PP
-There are nine tags, active tags are highlighted in the top left.
+There are ten workspaces, active workspaces are highlighted in the top left.
 .LI
 .ITEM
-\f(CWMod+(Number)\fP \(en Go to that number tag
+\f(CWMod+(Number)\fP \(en Go to that number workspace
 .ITEM
-\f(CWMod+Shift+(Number)\fP \(en Send window to that tag
+\f(CWMod+Shift+(Number)\fP \(en Send window to that workspace
 .ITEM
-\f(CWMod+Tab\fP \(en Go to previous tag
+\f(CWMod+Tab\fP \(en Go to previous workspace (may also use \f(CW\\\fP for Tab)
 .ITEM
 \f(CWMod+g\fP \(en Go to left workspace
 .ITEM
@@ -232,22 +226,22 @@ There are nine tags, active tags are highlighted in the top left.
 .LIST OFF
 .HEADING 2 "Recording"
 .PP
-maim and ffmpeg are used to make different recordings of the desktop and audio.
+I use maim and ffmpeg to make different recordings of the desktop and audio.
 All of these recording shortcuts will output into \f(CW~\fP, and will not overwrite
 previous recordings as their names are based on their exact times.
 .LI
 .ITEM
 \f(CWPrintScreen\fP \(en Take a screenshot
 .ITEM
-\f(CWShift+PrintScreen\fP \(en Opens dmenu menu to select screenshot method
+\f(CWShift+PrintScreen\fP \(en Select area to screenshot
 .ITEM
-\f(CWMod+PrintScreen\fP \(en Opens dmenu menu to select audio/video recording method
+\f(CWMod+PrintScreen\fP \(en Opens dmenu menu to select kind of audio/video recording
 .ITEM
 \f(CWMod+Delete\fP \(en Kills any recording started in the above way.
 .ITEM
-\f(CWMod+ScrollLock\fP \(en Turn on and off screenkey (if installed) for visual typing display
-.ITEM
 \f(CWMod+Shift+c\fP \(en Toggles a webcam in the bottom right for screencasting.
+.ITEM
+\f(CWMod+ScrollLock\fP \(en Toggle screenkey (if installed) to show keypresses
 .LIST OFF
 .HEADING 2 "Other buttons"
 .PP
@@ -256,35 +250,28 @@ buttons, screen brightness, email, web browsing buttons, etc.) to what you
 would expect.
 .HEADING 1 "Configuration"
 .PP
-Dotfiles/settings files are located in \f(CW~/.config/\fP. Note: dotfiles to programs not included in LARBS
-are there as well, so not all of these configs are maintained by LARBS/voidrice.
+Dotfiles/settings files are located in \f(CW~/.config/\fP, note that dotfiles to programs not included in LARBS are there as well by requests of users. I do not necessarily maintain all these dotfiles, but they remain as legacy.
 .PP
-Suckless programs like st (the terminal), dmenu, and dwm, among others do not have typical config files.
-Their configs can be found in \f(CW~/repos/\fP, and are compiled directly into the program.
-These suckless programs work this way for reasons beyond the scope of this document.
-.PP
-Regardless, you can still easily modify each of their \f(CWconfig.h\fP files,
-then \f(CWmake clean && sudo make install\fP
-to apply your changes. For st, you'll have to open a new terminal window to see your changes. For dwm,
-you'll have to relaunch using \f(CWMod+F2\fP.
+Suckless programs, st (the terminal) and dmenu among others do not have traditional config files, but have their source code location in \f(CW~/.local/src/\fP.
+There you can modify their \f(CWconfig.h\fP files, then \f(CWsudo make install\fP to reinstall.
+(You'll have to restart the program to see its effects obviously.)
 .HEADING 1 "Frequently Asked Questions (FAQs)"
 .HEADING 2 "My keyboard isn't working as expected!"
 .PP
-LARBS runs some custom keyboard settings in \f(CW~/.local/bin/remaps\fP.
+LARBS runs some custom keyboard settings in \f(CW~/.xinitrc\fP.
 These settings may override your preferred settings, so you should open this file and comment out troublesome lines if you have issues.
 .HEADING 2 "My audio isn't working!"
 .PP
-After a fresh install, the Linux audio system (ALSA) often mutes outputs.
-You may also need to set your preferred default output sink which you can do by the command line, or by selecting one with \f(CWalsamixer\fP (\f(CWmod+A\fP).
-
-If you have a more complex audio setup and can't be bothered to figure out ALSA, you might want to install and enable PulseAudio, which general "just werks".
+On fresh install, the Linux audio system (ALSA) often mutes outputs.
+You may want to unbind
+You may also need to set your preferred default output sink which you can do by the command line, or by selecting one with \f(CWpulsemixer\fP (\f(CWmod+A\fP).
 .HEADING 2 "How do I copy and paste?"
 .PP
 Copying and pasting is always program-specific on any system.
 In most graphical programs, copy and paste will be the same as they are on Windows: \f(CWctrl-c\fP and \f(CWctrl-v\fP.
 In the Linux terminal, those binds have other more important purposes, so you can run \f(CWman st\fP to see how to copy and paste in my terminal build.
 .PP
-Additionally, I've set vim to use the clipboard as the default buffer, which means when you copy or delete something in vim, it will be in your system clipboard as well, so you can \f(CWctrl-v\fP it into your Firefox instance, etc. You can also paste material copied from other programs into vim with the typical vim bindings.
+Additionally, I've set vim to use the clipboard as the default buffer, which means when you copy or delete something in vim, it will be in your system clipboard as well, so you can \f(CWctrl-v\fP it into your browser instance, etc. You can also paste material copied from other programs into vim with the typical vim bindings.
 .HEADING 2 "How do I change the background/wallpaper?"
 .PP
 The system will always read the file \f(CW~/.config/wall.png\fP as the wallpaper.
@@ -295,11 +282,18 @@ When using the file manager, you can simply hover over an image name and type \f
 LARBS no longer deploys Xresource by default, but you can still add an \f(CW~/.Xdefaults\fP file and add color settings to change the theme of numerous programs, including the terminal. See
 .PDF_WWW_LINK "https://wiki.archlinux.org/index.php/X_resources" "the Arch Wiki's article"
 for more information.
+.HEADING 2 "How do I set up my email?"
+.PP
+LARBS is automatically set up to be compatible with \f(CWmutt-wizard\fP, which is now in the AUR and can be installed by running \f(CWyay -S mutt-wizard-git\fP.
+You can then add email accounts by running \f(CWmw add\fP.
+.PP
+Once you have successfully added your email address(es), you can open your mail with \f(CWneomutt\fP which is also bound to \f(CWMod+e\fP.
+You can sync your mail by pressing \f(CWMod+F8\fP and you can set a cronjob to sync mail every several minutes by running \f(CWmw cron\fP.
 .HEADING 2 "How do I set up my music?"
 .PP
 By default, mpd, the music daemon assumes that \f(CW~/Music\fP is your music directory.
 This can be changed in \f(CW~/.config/mpd/mpd.conf\fP.
-When you add music to your music folder, it will refresh automatically. If not, you may have to run \f(CWmpc up\fP in the terminal to update the database.
+When you add music to your music folder, you may have to run \f(CWmpc up\fP in the terminal to update the database.
 mpd is controlled by ncmpcpp, which is accessible by \f(CWMod+m\fP.
 .HEADING 2 "How do I update LARBS?"
 .PP
@@ -310,15 +304,18 @@ This will overwrite the original config files though, including changes you made
 .HEADING 1 "Contact"
 .LI
 .ITEM
-.PDF_WWW_LINK "mailto:am@claridge.xyz" "am@claridge.xyz"
+.PDF_WWW_LINK "mailto:luke@lukesmith.xyz" "luke@lukesmith.xyz"
 \(en For questions!
 .ITEM
-.PDF_WWW_LINK "https://claridge.xyz" "https://claridge.xyz"
+.PDF_WWW_LINK "http://lukesmith.xyz" "https://lukesmith.xyz"
 \(en For stalking!
 .ITEM
-.PDF_WWW_LINK "https://github.com/PlatinumClaridge" "My Github Page"
+.PDF_WWW_LINK "https://lukesmith.xyz/donate" "https://lukesmith.xyz/donate"
+\(en To incentivize more development of LARBS!
+.ITEM
+.PDF_WWW_LINK "https://github.com/LukeSmithxyz" "My Github Page"
 \(en For the code behind it!
 .ITEM
-.PDF_WWW_LINK "https://claridge.xyz/rss.xml" "RSS"
+.PDF_WWW_LINK "http://lukesmith.xyz/rss.xml" "RSS"
 \(en For updates!
 .LIST OFF
