@@ -1,4 +1,23 @@
 #!/bin/sh
 
-# If $1 command is not available, error code and notify.
-command -v "$1" >/dev/null || { notify-send "📦 $1" "must be installed for this function." && exit 1 ;}
+# Some optional functions in LARBS require programs not installed by default. I
+# use this little script to check to see if a command exists and if it doesn't
+# it informs the user that they need that command to continue. This is used in
+# various other scripts for clarity's sake.
+
+distro="void" # void | arch
+
+case $distro in
+	void)
+		for x in "$@";do
+			command -v "$x" >/dev/null ||
+				{ notify-send "📦 $x" "must be installed for this function." && exit 1 ;}
+		done
+		;;
+	arch)
+		for x in "$@";do
+			pacman -Qq "$x" 2>/dev/null ||
+				{ notify-send "📦 $x" "must be installed for this function." && exit 1 ;}
+		done
+		;;
+esac
