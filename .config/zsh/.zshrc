@@ -2,7 +2,11 @@
 
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/prompt/multiline.zsh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/prompt/multiline.zsh"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/prompt/git-prompt.zsh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/prompt/git-prompt.zsh"
+#PS1="
+#%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}
+#$%b "
 #PS1="%B%{$fg[red]%}[ %{$fg[yellow]%}%n%{$fg[blue]%}@%{$fg[green]%}%M %{$fg[magenta]%}%~%{$fg[red]%} ]%{$reset_color%}$%b "
 ## PS1="%B%{$fg[magenta]%} %~%{$fg[red]%} >%{$reset_color%}%b "
 
@@ -84,5 +88,6 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 # Load syntax highlighting; should be last.
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
