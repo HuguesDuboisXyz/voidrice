@@ -24,6 +24,8 @@ alias \
 
 # These common commands are just too long! Abbreviate them.
 alias \
+	la="exa --git -la" \
+	ll="exa --git -l" \
 	ka="killall" \
 	g="git" \
 	trem="transmission-remote" \
