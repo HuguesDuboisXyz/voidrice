@@ -88,6 +88,10 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+# Load fzf
+source /usr/share/doc/fzf/key-bindings.zsh 2>/dev/null
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/fzf-extra.zsh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/fzf-extra.zsh"
+# Load fish autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
