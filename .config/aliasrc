@@ -27,6 +27,7 @@ alias \
 	la="exa --git -la" \
 	ll="exa --git -l" \
 	ka="killall" \
+	abook="abook -C ${XDG_CONFIG_HOME:-$HOME/.config}/abook/abookrc --datafile ${XDG_CONFIG_HOME:-$HOME/.config}/abook/addressbook" \
 	g="git" \
 	trem="transmission-remote" \
 	YT="youtube-viewer" \
@@ -48,5 +49,6 @@ alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
 alias \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" \
+	alsamixer="alsamixer; kill -44 $(pidof dwmblocks)" \
 	wttr="curl wttr.in" \
 	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
