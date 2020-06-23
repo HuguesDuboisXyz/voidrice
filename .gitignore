@@ -1,3 +1,4 @@
+.config/abook/addressbook
 .config/calcurse/apts
 .config/calcurse/todo
 .config/mpd/database
@@ -5,10 +6,12 @@
 .config/mpd/pid
 .config/mpd/state
 .config/mpd/sticker.sql
+.config/ncmpcpp/error.log
 .config/nvim/.netrwhist
 .config/nvim/autoload
 .config/nvim/plugged
 .config/shortcutrc
+.config/slack-term/
 .config/vifm/scripts
 .config/vifm/vifm-help.txt
 .config/vifm/vifminfo
