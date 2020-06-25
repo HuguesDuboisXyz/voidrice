@@ -1,13 +1,14 @@
 # The Voidrice (Based on Luke Smith's dotfiles)
 
-These are the dotfiles deployed by [LARBS](https://github.com/PlatinumClaridge/LARBS), as seen on [Luke's YouTube channel](https://youtube.com/c/lukesmithxyz).
+These are the dotfiles deployed by [LARBS](https://github.com/HuguesDuboisXyz/LARBS), as seen on [Luke's YouTube channel](https://youtube.com/c/lukesmithxyz).
 
 - Very useful scripts are in `~/.local/bin/`
 - Settings for:
 	- vim/nvim (text editor)
 	- zsh (shell)
 	- lf (file manager)
-	- mpd/ncmpcpp (music)
+	- vifm (file manager)
+	- mpd/ncmpcpp/mpc (music)
 	- newsboat (rss reader)
 	- neomutt (email client)
 	- sxiv (image/gif viewer)
@@ -27,12 +28,12 @@ The setup is pretty modular nowadays.
 Several suckless programs are utilized and meant to be configured and compiled by the user.
 Check out their links:
 
-- [dwm](https://github.com/PlatinumClaridge/dwm) (the window manager I usually use now which is fully compatible with this repo)
-- [st](https://github.com/PlatinumClaridge/st) (the terminal emulator assumed to be used by these dotfiles)
-- [dmenu](https://github.com/PlatinumClaridge/dmenu) (the program launcher and menu for many of the scripts included in LARBS)
+- [dwm](https://github.com/HuguesDuboisXyz/dwm) (the window manager I usually use now which is fully compatible with this repo)
+- [st](https://github.com/HuguesDuboisXyz/st) (the terminal emulator assumed to be used by these dotfiles)
+- [dmenu](https://github.com/HuguesDuboisXyz/dmenu) (the program launcher and menu for many of the scripts included in LARBS)
 
 ## How to use these settings
 
-These dot files are intended to be loaded onto a fresh install of Void Linux after running the [LARBS script](https://github.com/PlatinumClaridge/LARBS).
+These dot files are intended to be loaded onto a fresh install of Void Linux after running the [LARBS script](https://github.com/HuguesDuboisXyz/LARBS).
 
-Additionally, you can clone this repo into your home directory (overwriting your existing dotfiles), provided you have the necessary [programs](https://github.com/PlatinumClaridge/LARBS/blob/master/progs.csv) installed on your system.
+Additionally, you can clone this repo into your home directory (overwriting your existing dotfiles), provided you have the necessary [programs](https://github.com/HuguesDuboisXyz/LARBS/blob/master/progs.csv) installed on your system.
