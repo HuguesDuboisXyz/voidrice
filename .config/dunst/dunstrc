@@ -25,7 +25,7 @@
     sort = yes
 
     idle_threshold = 120
-    font = Monospace 14
+    font = Monospace 12
     line_height = 0
     markup = full
 
@@ -90,7 +90,9 @@
 
 [urgency_normal]
     #background = "#478061"
-    background = "#458588"
+    #background = "#458588"
+    #foreground = "#ebdbb2"
+    background = "#585858"
     foreground = "#ebdbb2"
     timeout = 10
 
