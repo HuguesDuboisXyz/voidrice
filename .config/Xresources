@@ -1,6 +1,7 @@
 !!! Transparency (0-1):
 !*.alpha: 1
 *.alpha: 0.9
+!*.dpi: 150
 
 !!! Set the background, foreground and cursor colors as below:
 !*.background: #282828
