@@ -88,6 +88,15 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+# load asdf cf. https://asdf-vm.com/
+[ -f "${ASDF_DATA_DIR:-$HOME/.local/share/asdf}/asdf.sh" ] && {
+        echo "Load asdf..."
+        source "${ASDF_DATA_DIR:-$HOME/.local/share/asdf}/asdf.sh"
+        fpath=(${ASDF_DIR}/completions $fpath)
+        autoload -Uz compinit
+        compinit
+        clear }
+
 # Load fzf
 source /usr/share/doc/fzf/key-bindings.zsh 2>/dev/null
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/fzf-extra.zsh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/fzf-extra.zsh"

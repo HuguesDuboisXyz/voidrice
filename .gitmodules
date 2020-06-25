@@ -2,3 +2,6 @@
 	path = .config/mpv/scripts/mpvSockets
 	url = https://github.com/wis/mpvSockets.git
 	branch = master
+[submodule ".local/share/asdf"]
+	path = .local/share/asdf
+	url = https://github.com/asdf-vm/asdf.git
