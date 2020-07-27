@@ -30,7 +30,6 @@ alias \
 	ll="exa --git -l" \
 	ka="killall" \
 	abook="abook -C ${XDG_CONFIG_HOME:-$HOME/.config}/abook/abookrc --datafile ${XDG_CONFIG_HOME:-$HOME/.config}/abook/addressbook" \
-	g="git" \
 	trem="transmission-remote" \
 	YT="youtube-viewer" \
 	sdn="sudo shutdown -h now" \
@@ -41,11 +40,19 @@ alias \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
 	z="zathura" \
-	gs="git status" \
-	gpom="git push origin master"
 
 # This alias is important. It enables the `pauseallmpv` command.
 alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
+
+# Git alias
+alias g="git" \
+	gd="git diff" \
+	gs="git status" \
+	ga="git add" \
+	gc="git commit -m" \
+	gr="git reset" \
+	gl="git log" \
+	gpom="git push origin master"
 
 # Some other stuff
 alias \
@@ -53,4 +60,8 @@ alias \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" \
 	alsamixer="alsamixer; kill -44 $(pidof dwmblocks)" \
 	wttr="curl wttr.in" \
+	pbcopy="xclip -i" \
+	pbpaste="xclip -o" \
+	pwdcopy="pwd | xclip -i" \
+	pwdpaste='cd `xclip -o`' \
 	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
