@@ -17,7 +17,13 @@
 .config/vifm/vifminfo
 .config/zsh/.zcompdump
 .config/zshnameddirrc
+.local/include/
+.local/lib/
+.local/share/history
+.local/share/lf/
 .local/share/newsboat
 .local/share/nvim
+.local/share/recently-used.xbel
 .local/share/weatherreport
+.local/share/yarn/
 .local/share/zathura
