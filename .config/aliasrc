@@ -52,6 +52,7 @@ alias g="git" \
 	gc="git commit -m" \
 	gr="git reset" \
 	gl="git log" \
+	gp="git push" \
 	gpom="git push origin master"
 
 # Some other stuff
