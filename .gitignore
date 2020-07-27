@@ -1,6 +1,9 @@
+.config/VirtualBox/
 .config/abook/addressbook
 .config/calcurse/apts
 .config/calcurse/todo
+.config/clojure/
+.config/coc/
 .config/mpd/database
 .config/mpd/log
 .config/mpd/pid
