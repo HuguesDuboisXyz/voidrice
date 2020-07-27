@@ -11,6 +11,7 @@ alias \
 	rm="rm -vI" \
 	cls="clear" \
 	mkd="mkdir -pv" \
+  open="xdg-open" \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
 	ffmpeg="ffmpeg -hide_banner" \
