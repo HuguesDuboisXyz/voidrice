@@ -12,22 +12,52 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim'
-Plug 'jreybert/vimagit'
+" Git support
+Plug 'tpope/vim-fugitive'
+"Plug 'jreybert/vimagit'
+Plug 'mhinz/vim-signify'                       " Show git diff margin
 
-Plug 'lukesmithxyz/vimling'
-Plug 'kovetskiy/sxhkd-vim'
+"Plug 'lukesmithxyz/vimling'
+"Plug 'kovetskiy/sxhkd-vim'
 
 Plug 'vimwiki/vimwiki'
-Plug 'bling/vim-airline'
-Plug 'ap/vim-css-color'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'          " tmux navigation
 Plug 'kshenoy/vim-signature'                   " Show marks in margin
-Plug 'mhinz/vim-signify'                       " Show git diff margin
+" Theme
+Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'
+" show color
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+" vifm inside vim
+Plug 'vifm/vifm.vim'
+
+Plug 'majutsushi/tagbar'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}  " Autocompletion
+Plug 'dense-analysis/ale'                        " linters
+"Plug 'SirVer/ultisnips'
+
+" lisp language family
+"Plug 'bhurlow/vim-parinfer'
+" clojure
+"Plug 'Olical/conjure', {'tag': 'v4.0.0'}
+" elixir
+Plug 'elixir-lang/vim-elixir'
+Plug 'avdgaag/vim-phoenix'
+"Plug 'mmorearty/elixir-ctags'
+Plug 'mattreduce/vim-mix'
+"Plug 'BjRo/vim-extest'
+
 call plug#end()
 
+if has("termguicolors")
+  set termguicolors
+  "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+"let g:gruvbox_contrast_dark = 'hard'
+"let g:gruvbox_invert_selection='0'
 colorscheme gruvbox
 set bg=dark
 set go=a
@@ -59,7 +89,7 @@ nmap <leader>l :set list!<CR>
 	"set autowrite                    " write when switching buffers
 	"set autowriteall                 " write on :quit
 	set colorcolumn=81                " highlight the 80th column as an indicator
-	highlight ColorColumn ctermbg=0 guibg=lightgrey
+	"highlight ColorColumn ctermbg=1 guibg=lightgrey
 	set completeopt+=noselect
 	set cursorline                    " highlight the current line for the cursor
 	set expandtab                     " expands tabs to spaces
@@ -71,8 +101,8 @@ nmap <leader>l :set list!<CR>
 	set listchars=nbsp:␣,tab:\|\ ,trail:▫,eol:¬
 	"set listchars=tab:\|\ ,trail:▫,eol:¬,space:·
 	"set listchars=tab:\|\ ,trail:▫
-	set nospell                       " disable spelling
-	set noswapfile                    " disable swapfile usage
+  set nospell                       " disable spelling
+  set noswapfile                    " disable swapfile usage
 	set nowrap
 	set noerrorbells                  " No bells!
 	set novisualbell                  " I said, no bells!
@@ -130,12 +160,6 @@ nmap <leader>l :set list!<CR>
         let NERDTreeBookmarksFile = '~/.vim' . '/NERDTreeBookmarks'
     endif
 
-" vimling:
-	nm <leader>d :call ToggleDeadKeys()<CR>
-	imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
-	nm <leader>i :call ToggleIPA()<CR>
-	imap <leader>i <esc>:call ToggleIPA()<CR>a
-	nm <leader>q :call ToggleProse()<CR>
 
 " Shortcutting split navigation, saving a keypress:
 	map <C-h> <C-w>h
@@ -155,6 +179,9 @@ nmap <leader>l :set list!<CR>
 
 " Replace all is aliased to S.
 	nnoremap S :%s//g<Left><Left>
+
+" Shooz code documentation
+	nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Compile document, be it groff/LaTeX/markdown/etc.
 	map <leader>c :w! \| !compiler <c-r>%<CR>
@@ -217,3 +244,79 @@ nmap <leader>l :set list!<CR>
 if &diff
     highlight! link DiffText MatchParen
 endif
+
+"----------------------------------------------
+" Plugin: rrethy/vim-hexokinase
+"----------------------------------------------
+let g:Hexokinase_highlighters = ['backgroundfull']
+nmap <leader>h :HexokinaseToggle<CR>
+
+"----------------------------------------------
+" Plugin: 'lukesmithxyz/vimling'
+"----------------------------------------------
+"nm <leader>d :call ToggleDeadKeys()<CR>
+"imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
+"nm <leader>i :call ToggleIPA()<CR>
+"imap <leader>i <esc>:call ToggleIPA()<CR>a
+"nm <leader>q :call ToggleProse()<CR>
+
+"----------------------------------------------
+" Plugin: scrooloose/nerdtree
+"----------------------------------------------
+nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <F2> :NERDTreeToggle<CR>
+
+"----------------------------------------------
+" Plugin: 'majutsushi/tagbar'
+"----------------------------------------------
+" Add shortcut for toggling the tag bar
+nnoremap <F3> :TagbarToggle<CR>
+
+"----------------------------------------------
+" Plugin: 'majutsushi/tagbar'
+"----------------------------------------------
+nnoremap <F4> :Vifm<CR>
+"----------------------------------------------
+" Plugin: tpope/vim-fugitive
+"----------------------------------------------
+nmap <leader>gs :G<CR>
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
+"----------------------------------------------
+" Plugin: neoclide/coc.nvim
+"----------------------------------------------
+let g:coc_global_extensions = ['coc-elixir', 'coc-diagnostic']
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<Tab>" :
+            \ coc#refresh()
+
+" use <c-space>for trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
+" Use <Tab> and <S-Tab> to navigate the completion list
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Use <cr> to confirm completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Close the preview window when completion is done
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" Sementic code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+
+"----------------------------------------------
+" Plugin: dense-analysis/ale
+"----------------------------------------------
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier', 'eslint'],
+\   'elixir': ['mix_format'],
+\}
+let g:ale_fix_on_save = 1
