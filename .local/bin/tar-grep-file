@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# tar ztfv $1 2>&1 | grep "$2"
+TAR_FILE=$1
+shift
+GREP_ARGS=$@
+tar ztfv $TAR_FILE 2>&1 | grep $GREP_ARGS
