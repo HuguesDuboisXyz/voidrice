@@ -1,0 +1,35 @@
+#!/bin/sh
+
+asdf plugin add clojure
+asdf plugin add java
+asdf plugin add lein
+asdf plugin add nodejs
+asdf plugin add rust
+asdf plugin add sbcl
+asdf plugin add yarn
+asdf plugin add erlang
+asdf plugin add elixir
+
+# Import the Node.js release team's OpenPGP keys to main keyring
+bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+
+asdf install clojure        1.10.1
+asdf install java           openjdk-14.0.1
+asdf install lein           2.9.3
+asdf install nodejs         14.4.0
+asdf install rust           1.44.1
+asdf install sbcl           2.0.5
+asdf install yarn           1.22.4
+asdf install erlang         23.0.3
+asdf install elixir         1.10.4-otp-23
+
+
+asdf global clojure        1.10.1
+asdf global java           openjdk-14.0.1
+asdf global lein           2.9.3
+asdf global nodejs         14.4.0
+asdf global rust           1.44.1
+asdf global sbcl           2.0.5
+asdf global yarn           1.22.4
+asdf global erlang         23.0.3
+asdf global elixir         1.10.4-otp-23
