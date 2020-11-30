@@ -1,30 +1,36 @@
 #!/bin/sh
 
+asdf plugin add java
 asdf plugin add nodejs
 asdf plugin add yarn
 asdf plugin add erlang
 asdf plugin add elixir
+asdf plugin add rebar
 asdf plugin add v
 asdf plugin add golang
 asdf plugin add crystal
 asdf plugin add rust
 asdf plugin add sbcl
-asdf plugin add java
+asdf plugin add scala
+asdf plugin add sbt
 asdf plugin update --all
 
 # Import the Node.js release team's OpenPGP keys to main keyring
 bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
 
+asdf install java    openjdk-14.0.2
 asdf install nodejs  latest
 asdf install yarn    latest
 asdf install erlang  latest
 asdf install elixir  latest
+asdf install rebar   latest
 asdf install v       latest
 asdf install golang  latest
 asdf install crystal latest
 asdf install rust    latest
 asdf install sbcl    latest
-asdf install java    openjdk-14.0.2
+asdf install scala   latest
+asdf install sbt     latest
 
 for lang in $(asdf plugin-list)
 do
