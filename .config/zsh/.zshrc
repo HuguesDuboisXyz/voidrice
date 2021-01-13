@@ -93,6 +93,9 @@ bindkey '^e' edit-command-line
         source "${ASDF_DATA_DIR:-$HOME/.local/share/asdf}/asdf.sh"
         fpath=(${ASDF_DIR}/completions $fpath) }
 
+[ -f "${ASDF_DATA_DIR:-$HOME/.local/share/asdf}/plugins/java/set-java-home.zsh" ] && {
+        source "${ASDF_DATA_DIR:-$HOME/.local/share/asdf}/plugins/java/set-java-home.zsh" }
+
 echo "Load completions..."
 fpath=(${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completions $fpath)
 autoload -Uz compinit

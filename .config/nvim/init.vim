@@ -8,7 +8,7 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
-Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim'
@@ -36,8 +36,8 @@ Plug 'vifm/vifm.vim'
 Plug 'majutsushi/tagbar'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}  " Autocompletion
 Plug 'dense-analysis/ale'                        " linters
+Plug 'sbdchd/neoformat'                          " auto format
 "Plug 'SirVer/ultisnips'
-
 " lisp language family
 "Plug 'bhurlow/vim-parinfer'
 " clojure
@@ -48,6 +48,10 @@ Plug 'avdgaag/vim-phoenix'
 "Plug 'mmorearty/elixir-ctags'
 Plug 'mattreduce/vim-mix'
 "Plug 'BjRo/vim-extest'
+
+Plug 'vim-erlang/vim-erlang-runtime' " erlang support
+
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -239,7 +243,14 @@ nmap <leader>l :set list!<CR>
 	noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Opens a tab edit command with the path of the currently edited file filled
 	noremap <leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
+" auto close ",',[,{,(
+  inoremap " ""<left>
+  inoremap ' ''<left>
+  inoremap ( ()<left>
+  inoremap [ []<left>
+  inoremap { {}<left>
+  inoremap {<CR> {<CR>}<ESC>O
+  inoremap {;<CR> {<CR>};<ESC>O
 " Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
 if &diff
     highlight! link DiffText MatchParen
@@ -320,3 +331,32 @@ let g:ale_fixers = {
 \   'elixir': ['mix_format'],
 \}
 let g:ale_fix_on_save = 1
+
+"----------------------------------------------
+" Plugin: editorconfig/editorconfig-vim
+"----------------------------------------------
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+"----------------------------------------------
+" Plugin: sbdchd/neoformat
+"----------------------------------------------
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
+"----------------------------------------------
+" nitrogen web framework
+"----------------------------------------------
+" if this has ft=nitrogen in the modeline
+"     tell the system that it's actually an erlang filetype
+"     but override the indentation rules such that it expands tabs to spaces,
+"     uses tab width of 4 and uses vim's 'smartindent', which works much
+"     better indentation rules for nitrogen elements.
+if has("autocmd")
+	" smartindenting will remove leading spaces when typing in a # as the
+	" first character, so you don't want that with nitrogen, since *many,
+	" many* lines will match that.  So the inoremap below fixes it
+	autocmd Filetype nitrogen inoremap # X#
+	autocmd FileType nitrogen set filetype=erlang smartindent autoindent expandtab shiftwidth=4 tabstop=4 softtabstop=4 indentexpr=""
+endif

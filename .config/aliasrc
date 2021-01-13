@@ -35,7 +35,6 @@ alias \
 	sdn="sudo shutdown -h now" \
 	f="$FILE" \
 	e="$EDITOR" \
-	v="$EDITOR" \
 	xi="sudo xbps-install -S" \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
