@@ -1,0 +1,9 @@
+{
+  "coc.preferences.jumpCommand": "tab drop",
+  "languageserver": {
+    "erlang": {
+      "command": "erlang_ls",
+      "filetypes": ["erlang"]
+    }
+  }
+}
