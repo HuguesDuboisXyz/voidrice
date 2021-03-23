@@ -6,6 +6,8 @@ asdf plugin add yarn
 asdf plugin add erlang
 asdf plugin add elixir
 asdf plugin add rebar
+asdf plugin add lfe
+asdf plugin add gleam
 asdf plugin add v
 asdf plugin add golang
 asdf plugin add crystal
@@ -24,6 +26,8 @@ asdf install yarn    latest
 asdf install erlang  latest
 asdf install elixir  latest
 asdf install rebar   latest
+CC=gcc asdf install lfe     latest
+asdf install gleam   latest
 asdf install v       latest
 asdf install golang  latest
 asdf install crystal latest

@@ -58,9 +58,11 @@ export MOZ_USE_XINPUT2="1"                # Mozilla smooth scrolling/touchpads.
 export AWT_TOOLKIT="MToolkit wmname LG3D" # May have to install wmname
 export _JAVA_AWT_WM_NONREPARENTING=1      # Fix for Java applications in dwm
 # asdf vm
-export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/asdfrc" # Defaults to ~/.asdfrc
-export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".tool-versions"        # Defaults to .tool-versions
-export ASDF_DATA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/asdf"   # Defaults to ~/.asdf
+export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/asdfrc"  # Defaults to ~/.asdfrc
+export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".tool-versions"         # Defaults to .tool-versions
+export ASDF_DATA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/asdf"    # Defaults to ~/.asdf
+
+export ZOMP_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zomp"
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\
@@ -128,6 +130,6 @@ ex=🎯:\
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ] && shortcuts >/dev/null 2>&1 &
 
 # Switch escape and caps if tty and no passwd required:
-sudo -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/larbs/ttymaps.kmap 2>/dev/null
+#sudo -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/larbs/ttymaps.kmap 2>/dev/null
 
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
