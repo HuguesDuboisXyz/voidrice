@@ -1,10 +1,10 @@
 let mapleader = "\<Space>"
 
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
-	echo "Downloading junegunn/vim-plug to manage plugins..."
-	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
-	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
-	autocmd VimEnter * PlugInstall
+    echo "Downloading junegunn/vim-plug to manage plugins..."
+    silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+    silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+    autocmd VimEnter * PlugInstall
 endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
@@ -62,27 +62,39 @@ Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 if has("termguicolors")
-  set termguicolors
-  "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+    "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 "let g:gruvbox_contrast_dark = 'hard'
 "let g:gruvbox_invert_selection='0'
 colorscheme gruvbox
+
 set bg=dark
 set go=a
 set mouse=a
 set nohlsearch
 set clipboard+=unnamedplus
+" Toggle background with <leader>bg
+map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<CR>
+
+let is_transparent = 0
+function! Toggle_transparent_background()
+  if g:is_transparent != 1
+    set bg=dark
+    let g:is_transparent = 1
+  else
+    hi Normal guibg=NONE ctermbg=NONE
+    let g:is_transparent = 0
+  endif
+endfunction
+nnoremap <F1> :call Toggle_transparent_background()<CR>
 " Override the search highlight color with a combination that is easier to
 " read. The default PaperColor is dark green backgroun with black foreground.
 "
 " Reference:
 " - http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 "highlight Search guibg=DeepPink4 guifg=White ctermbg=53 ctermfg=White
-
-" Toggle background with <leader>bg
-map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<CR>
 
 nmap <leader>l :set list!<CR>
 
@@ -111,8 +123,8 @@ nmap <leader>l :set list!<CR>
 	set listchars=nbsp:␣,tab:\|\ ,trail:▫,eol:¬
 	"set listchars=tab:\|\ ,trail:▫,eol:¬,space:·
 	"set listchars=tab:\|\ ,trail:▫
-  set nospell                       " disable spelling
-  set noswapfile                    " disable swapfile usage
+    set nospell                       " disable spelling
+    set noswapfile                    " disable swapfile usage
 	set nowrap
 	set noerrorbells                  " No bells!
 	set novisualbell                  " I said, no bells!
@@ -126,6 +138,7 @@ nmap <leader>l :set list!<CR>
 	set foldlevelstart=30             " default foldlevel to 30 folds
 	" Use all the memory needed, for maximum performance.
 	set maxmempattern=2000000
+    highlight Normal guibg=NONE ctermbg=NONE
 
 
 " Fix some common typos

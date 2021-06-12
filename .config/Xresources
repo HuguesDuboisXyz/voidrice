@@ -1,7 +1,12 @@
 !!! Transparency (0-1):
-*.alpha: 1
+!*.alpha: 1
 !*.alpha: 0.9
+!*.alpha: 0.8
+*.alpha: 0.7
+!*.alpha: 0.1
 *.dpi: 150
+
+!st.alpha: 0.9
 
 !!! Set the background, foreground and cursor colors as below:
 !*.background: #282828
@@ -33,7 +38,8 @@
 !*.color15:      #d8caac
 
 !!! Set a default font and font size as below:
-*.font: monospace:size=10
+!*.font: monospace:size=10
+*.font: Hack Nerd Font Mono:size=11
 
 !!! name		dark	light
 !black	0	8
@@ -84,7 +90,6 @@
 !*.color15:     #3c3836
 !*.background:  #fbf1c7
 !*.foreground:  #282828
-!st.alpha: 0.9
 
 !!! brogrammer:
 !*.foreground:  #d6dbe5

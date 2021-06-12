@@ -49,6 +49,7 @@ alias g="git" \
   gs="git status" \
   ga="git add" \
   gc="git commit -m" \
+  gco="git checkout" \
   gb="git branch" \
   gba="git branch --all" \
   gbd="git branch -D " \
@@ -149,4 +150,8 @@ alias \
   tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
 
 alias \
-  pg-connect="sudo -u postgres psql "
+  pg-connect="sudo -u postgres psql " \
+  pg-start="sudo -u postgres pg_ctl -D /var/lib/postgresql/data start" \
+  pg-stop="sudo -u postgres pg_ctl -D /var/lib/postgresql/data stop"
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc-secret" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc-secret"

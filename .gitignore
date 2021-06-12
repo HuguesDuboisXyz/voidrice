@@ -1,9 +1,23 @@
+.config/GIMP/
+.config/JetBrains/
+.config/QtProject.conf
 .config/VirtualBox/
 .config/abook/addressbook
+.config/aliasrc-secret
+.config/balena-etcher-electron/
+.config/browser/
 .config/calcurse/apts
 .config/calcurse/todo
+.config/chromium/
 .config/clojure/
 .config/coc/
+.config/configstore/
+.config/dconf/
+.config/draw.io/
+.config/erl_observer/
+.config/git/
+.config/gtk-2.0/gtkfilechooser.ini
+.config/himalaya/
 .config/mpd/database
 .config/mpd/log
 .config/mpd/pid
@@ -13,20 +27,42 @@
 .config/nvim/.netrwhist
 .config/nvim/autoload
 .config/nvim/plugged
+.config/pavucontrol.ini
+.config/pulse/
 .config/shortcutrc
 .config/slack-term/
+.config/spotify-tui/
+.config/spotify/
 .config/vifm/scripts
 .config/vifm/vifm-help.txt
 .config/vifm/vifminfo
+.config/vlc/
 .config/zsh/.zcompdump
+.config/zsh/completions/_himalaya
 .config/zshnameddirrc
+.local/bin/AppImage/
 .local/include/
 .local/lib/
+.local/log/
+.local/share/Hammerfight/
+.local/share/Planescape Torment - Enhanced Edition/
+.local/share/Red Hook Studios/
+.local/share/Steam/
+.local/share/applications/Darkest Dungeon.desktop
+.local/share/applications/Hammerfight.desktop
+.local/share/applications/Planescape Torment Enhanced Edition.desktop
+.local/share/applications/chromium.desktop
+.local/share/gsettings-data-convert
 .local/share/history
 .local/share/lf/
 .local/share/newsboat
 .local/share/nvim
+.local/share/password-store/
 .local/share/recently-used.xbel
+.local/share/vifm/
+.local/share/vlc/
+.local/share/vulkan/
 .local/share/weatherreport
+.local/share/webkitgtk/
 .local/share/yarn/
 .local/share/zathura

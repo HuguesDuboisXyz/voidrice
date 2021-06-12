@@ -10,8 +10,12 @@ export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="st"
-export BROWSER="firefox"
+#export TERMINAL="st"
+export TERMINAL="alacritty"
+#export BROWSER="firefox"
+#export TERMINAL="alacritty"
+export BROWSER="chromium --force-dark-mode"
+export BROWSER_ALT="firefox"
 export READER="zathura"
 
 # ~/ Clean-up:
@@ -57,6 +61,8 @@ export QT_QPA_PLATFORMTHEME="gtk2"        # Have QT use gtk2 theme.
 export MOZ_USE_XINPUT2="1"                # Mozilla smooth scrolling/touchpads.
 export AWT_TOOLKIT="MToolkit wmname LG3D" # May have to install wmname
 export _JAVA_AWT_WM_NONREPARENTING=1      # Fix for Java applications in dwm
+
+export PATH="$PATH:$HOME/.mix/escripts"
 # asdf vm
 export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/asdfrc"  # Defaults to ~/.asdfrc
 export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".tool-versions"         # Defaults to .tool-versions
