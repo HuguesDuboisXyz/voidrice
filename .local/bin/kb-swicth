@@ -1,0 +1,3 @@
+#!/bin/sh
+chosen="$(echo "us\nde qwerty\nfr\nde" | dmenu -i -l 10 -p "Layout:")" || exit 1
+setxkbmap $chosen

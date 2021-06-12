@@ -1,0 +1,6 @@
+#!/bin/sh
+
+chosen="$(pactl list sinks short | dmenu -i -l 30 -p "Which sound device?" | cut -f1)" || exit 1
+[ -z "$chosen" ] && exit
+pactl set-default-sink $chosen
+paplay -p --device=$chosen /usr/share/sounds/alsa/Front_Center.wav

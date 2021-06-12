@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/bin/vlc http://mafreebox.freebox.fr/freeboxtv/playlist.m3u &

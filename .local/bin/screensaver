@@ -1,0 +1,2 @@
+#!/bin/env sh
+mpv --loop=inf --volume=0 ~/.local/share/screensavers/XRaySwarm.mp4
